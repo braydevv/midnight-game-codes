@@ -6,6 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 <link rel="stylesheet" href="./style.css"/>
+<!-- Mock parent for standalone games -->
+<script>
+if (window.parent === window) {
+    window.parent = {
+        postMessage: function(message, targetOrigin, transfer) {
+            // Mock postMessage to prevent errors when no parent iframe exists
+            console.log('Mock postMessage called with:', message);
+        }
+    };
+}
+</script>
 <!-- Yandex Games SDK -->
 <script src="sdk.js"></script>
 <style>
