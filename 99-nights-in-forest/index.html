@@ -180,7 +180,7 @@
         InitYSDK();
         async function InitYSDK() {
             try {
-                if (LocalHost()) return;
+                if (LocalHost() || window.location.hostname !== 'yandex.ru') return;
 
                 console.log('Init Yandex SDK');
                 ysdk = await YaGames.init();
