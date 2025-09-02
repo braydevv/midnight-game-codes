@@ -192,7 +192,7 @@ if (window.parent === window) {
         async function InitYSDK() {
             try {
                 if (LocalHost() || window.location.hostname !== 'yandex.ru') {
-                    StartUnityInstance_IfUnloaded();
+                    setTimeout(StartUnityInstance_IfUnloaded, 100);
                     return;
                 }
 
